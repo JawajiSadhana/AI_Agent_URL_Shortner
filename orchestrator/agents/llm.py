@@ -6,8 +6,8 @@ import json
 def get_llm():
     # If the user has an API key set, use the real LLM. 
     # Otherwise, we will use a mock mode for testing the DAG.
-    api_key = os.environ.get("QROQ_API_KEY")
-    base_url = os.environ.get("QROQ_BASE_URL") # Adjust if different
+    api_key = os.environ.get("GROQ_API_KEY")
+    base_url = os.environ.get("GROQ_BASE_URL") # Adjust if different
     
     if api_key:
         return ChatOpenAI(
