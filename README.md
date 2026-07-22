@@ -62,8 +62,8 @@ pip install -e .
 
 Before running, if you want to use the real LLM (Groq API) instead of Mock mode, configure your API credentials in your environment:
 ```powershell
-$env:QROQ_API_KEY="your_groq_api_key"
-$env:QROQ_BASE_URL="https://api.groq.com/openai/v1"
+$env:GROQ_API_KEY="your_groq_api_key"
+$env:GROQ_BASE_URL="https://api.groq.com/openai/v1"
 ```
 
 #### **Scenario A: Greenfield (Build New Service)**
@@ -74,7 +74,7 @@ Generates the base URL shortener service from scratch.
   ```
 * **Groq Production Mode**:
   ```bash
-  # Ensure QROQ_API_KEY is set
+  # Ensure GROQ_API_KEY is set
   python -m orchestrator.main --scenario "greenfield" --requirement "Build a minimal lean URL shortener API with FastAPI that saves to SQLite"
   ```
 
@@ -86,7 +86,7 @@ Adds redirection analytics tracking and the stats endpoint on top of the existin
   ```
 * **Groq Production Mode**:
   ```bash
-  # Ensure QROQ_API_KEY is set
+  # Ensure GROQ_API_KEY is set
   python -m orchestrator.main --scenario "brownfield" --requirement "Enhance the existing URL shortener to track redirection usage. Add a clicks counter to the URLMap database model. For every redirect, increment the counter. Expose a new API endpoint GET /analytics/{code} returning the target URL and total clicks."
   ```
 
@@ -98,7 +98,7 @@ Provides a vague requirement (e.g. *"make safety better"* and *"make redirects d
   ```
 * **Groq Production Mode**:
   ```bash
-  # Ensure QROQ_API_KEY is set
+  # Ensure GROQ_API_KEY is set
   python -m orchestrator.main --scenario "ambiguous" --requirement "Improve URL shortener backend safety and redirect features. We want to protect it but we also want the redirects to be dynamic and fast."
   ```
 
